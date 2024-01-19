@@ -1,8 +1,6 @@
 // components/PortfolioSection.js
 
 import React from 'react';
-import { Grid, Drawer, IconButton, AppBar, Toolbar, List, ListItem, ListItemText, ListItemIcon } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
 
 const portfolioItems = [
   { id: 1, title: 'Project 1', image: 'image1.jpg' },
@@ -18,49 +16,38 @@ const PortfolioSection = () => {
   };
 
   const drawer = (
-    <List>
+    <ul>
       {portfolioItems.map((item) => (
-        <ListItem key={item.id}>
-          <ListItemIcon>
-            {/* You can use an icon here if needed */}
-          </ListItemIcon>
-          <ListItemText primary={item.title} />
-        </ListItem>
+        <li key={item.id}>
+          <span>{item.title}</span>
+        </li>
       ))}
-    </List>
+    </ul>
   );
 
   return (
     <div>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="end"
-            onClick={handleDrawerToggle}
-          >
-            <MenuIcon />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-      <nav>
-        <Drawer
-          variant="temporary"
-          anchor="right"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
+      <div style={{ backgroundColor: '#333', padding: '10px' }}>
+        <button
+          style={{
+            color: 'white',
+            border: 'none',
+            backgroundColor: 'transparent',
+            fontSize: '24px',
+          }}
+          onClick={handleDrawerToggle}
         >
-          {drawer}
-        </Drawer>
-      </nav>
-      <Grid container spacing={2}>
+          ☰
+        </button>
+      </div>
+      <nav style={{ display: mobileOpen ? 'block' : 'none' }}>{drawer}</nav>
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {portfolioItems.map((item) => (
-          <Grid key={item.id} item xs={12} md={4}>
+          <div key={item.id} style={{ flex: '1 0 33%', padding: '10px' }}>
             <PortfolioItem {...item} />
-          </Grid>
+          </div>
         ))}
-      </Grid>
+      </div>
     </div>
   );
 };
