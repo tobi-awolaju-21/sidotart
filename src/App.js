@@ -2,12 +2,12 @@
 
 import React from 'react';
 import './App.css';
-import PortfolioSection from './components/PortfolioSection';
+import ToolBar from './components/ToolBar';
 
 function App() {
   return (
     <div className="App">
-      <PortfolioSection />
+      <ToolBar/>
     </div>
   );
 }

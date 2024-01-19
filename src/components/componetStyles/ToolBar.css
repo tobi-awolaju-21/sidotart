@@ -1,0 +1,32 @@
+/* ToolBar.css */
+
+.toolbar {
+    /* Common styles for both desktop and mobile */
+    padding: 15px;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 30px;
+  }
+  
+  /* Mobile-specific styles for the toggle button */
+  .toolbar.mobile #toggle-btn {
+    display: block;
+  }
+  /* Desktop-specific styles */
+  .toolbar:not(.mobile) #toggle-btn {
+    display: none;
+  }
+
+  
+   /* Desktop-specific styles for items */
+   .toolbar:not(.mobile) #items {
+    display: flex;
+    font-size: 25px;
+    color: rgba(0, 0, 0, 0.344);
+  }
+  /*hide items in mobile mode*/
+  .toolbar.mobile #items {
+    display: none;
+  }
