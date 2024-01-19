@@ -8,7 +8,6 @@ function App() {
   return (
     <div className="App">
       <ToolBar/>
-      <div>I am worlds most boring bf btw</div>
     </div>
   );
 }
